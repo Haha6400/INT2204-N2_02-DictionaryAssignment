@@ -11,4 +11,18 @@ public class DictionaryManagement {
         word.setVietnamese(word.getVietnamese().toLowerCase());
         Dictionary.dictionary.remove(word);
     }
+    
+    private void searchFilter(String searchTerm){
+        DefaultListModel filteredItems = new DefaultListModel();
+        words.stream().forEach((word) -> {
+            String new_word = word.toString().toLowerCase();
+            if (new_word.startsWith(searchTerm.toLowerCase())) {
+                word.setWord_target(new_word);
+                filteredItems.addElement(word.getWord_target()); 
+                vnmeses.put(word.getWord_target(), word.getWord_explain());
+            }
+        });
+        listModel = filteredItems;
+        jList1.setModel(listModel);
+    }
 }
