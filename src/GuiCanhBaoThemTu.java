@@ -1,94 +1,106 @@
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 
 public class GuiCanhBaoThemTu extends JFrame {
-    Word word;
 
-    Container container;
+  Word word;
 
-    JButton btnChapNhap,btnHuyBo;
+  Container container;
 
-    Font generalFont=new Font("arial",Font.TYPE1_FONT,16);
-    Font titleFont=new Font("arial",Font.BOLD,30);
-    Font fontInText=new Font("arial",Font.ITALIC,16);
+  JButton btnChapNhap, btnHuyBo;
 
-    public GuiCanhBaoThemTu(Word word){
-        super("Cảnh báo");
-        this.word=word;
-        addControls();
-        addEvents();
+  Font generalFont = new Font("arial", Font.TYPE1_FONT, 16);
+  Font titleFont = new Font("arial", Font.BOLD, 30);
+  Font fontInText = new Font("arial", Font.ITALIC, 16);
 
-    }
+  public GuiCanhBaoThemTu(Word word) {
+    super("Cảnh báo");
+    this.word = word;
+    addControls();
+    addEvents();
 
-    public void addControls(){
-        container=getContentPane();
+  }
 
-        JPanel pnMain=new JPanel();
-        pnMain.setLayout(new BoxLayout(pnMain,BoxLayout.Y_AXIS));
+  public void addControls() {
+    container = getContentPane();
 
-        JPanel pnTrong=new JPanel();
-        pnMain.add(pnTrong);
+    JPanel pnMain = new JPanel();
+    pnMain.setLayout(new BoxLayout(pnMain, BoxLayout.Y_AXIS));
 
-        JPanel pnThongBao=new JPanel();
-        pnThongBao.setPreferredSize(new Dimension(400,300));
-        pnThongBao.setLayout(new FlowLayout(FlowLayout.CENTER));
-        JLabel lblThongBao=new JLabel("Bạn có chắc muốn thêm từ này?");
-        lblThongBao.setIcon(new ImageIcon("Hinh\\icon\\canhbao.png"));
-        lblThongBao.setFont(generalFont);
-        pnThongBao.add(lblThongBao);
-        pnMain.add(pnThongBao);
+    JPanel pnTrong = new JPanel();
+    pnMain.add(pnTrong);
 
-        JPanel pnButton=new JPanel();
-        btnChapNhap=new JButton("Chấp nhận");
-        btnChapNhap.setFont(generalFont);
-        btnHuyBo=new JButton("Hủy bỏ");
-        btnHuyBo.setFont(generalFont);
-        pnButton.add(btnChapNhap);
-        pnButton.add(btnHuyBo);
+    JPanel pnThongBao = new JPanel();
+    pnThongBao.setPreferredSize(new Dimension(400, 300));
+    pnThongBao.setLayout(new FlowLayout(FlowLayout.CENTER));
+    JLabel lblThongBao = new JLabel("Bạn có chắc muốn thêm từ này?");
+    lblThongBao.setIcon(new ImageIcon("Hinh\\icon\\canhbao.png"));
+    lblThongBao.setFont(generalFont);
+    pnThongBao.add(lblThongBao);
+    pnMain.add(pnThongBao);
 
-        pnMain.add(pnButton);
+    JPanel pnButton = new JPanel();
+    btnChapNhap = new JButton("Chấp nhận");
+    btnChapNhap.setFont(generalFont);
+    btnHuyBo = new JButton("Hủy bỏ");
+    btnHuyBo.setFont(generalFont);
+    pnButton.add(btnChapNhap);
+    pnButton.add(btnHuyBo);
 
-        pnTrong.setPreferredSize(new Dimension(270,55));
-        pnThongBao.setPreferredSize(new Dimension(270,75));
-        pnButton.setPreferredSize(new Dimension(270,50));
+    pnMain.add(pnButton);
 
-        container.add(pnMain);
+    pnTrong.setPreferredSize(new Dimension(270, 55));
+    pnThongBao.setPreferredSize(new Dimension(270, 75));
+    pnButton.setPreferredSize(new Dimension(270, 50));
 
-    }
+    container.add(pnMain);
 
-    public void addEvents(){
-        btnChapNhap.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                xyLyChucNangChapNhanSuaTu();
-            }
-        });
-        btnHuyBo.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                xuLyChucNangTroVe();
-            }
-        });
-    }
+  }
 
-    private void xuLyChucNangTroVe() {
-        this.dispose();
-    }
+  public void addEvents() {
+    btnChapNhap.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        xyLyChucNangChapNhanSuaTu();
+      }
+    });
+    btnHuyBo.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        xuLyChucNangTroVe();
+      }
+    });
+  }
 
-    private void xyLyChucNangChapNhanSuaTu() {
-        DictionaryManagement.insertWord(word);
-        JOptionPane.showMessageDialog(null,"Thêm thành công");
-        this.dispose();
-    }
+  private void xuLyChucNangTroVe() {
+    this.dispose();
+  }
 
-    public void showWindow(){
-        this.setSize(320,200);// set size
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);// thêm chức năng thoát hoàn toàn khỏi chương trình vào nút đỏ
-        this.setLocationRelativeTo(null);// để giao diện nằm chính giữa
-        this.setResizable(false);// không cho phép thay đổi kích cỡ cửa sổ
-        this.setVisible(true);// để giao diện hiện lên
+  private void xyLyChucNangChapNhanSuaTu() {
+    DictionaryManagement.insertWord(word);
+    JOptionPane.showMessageDialog(null, "Thêm thành công");
+    this.dispose();
+  }
 
-    }
+  public void showWindow() {
+    this.setSize(320, 200);// set size
+    this.setDefaultCloseOperation(
+        WindowConstants.EXIT_ON_CLOSE);// thêm chức năng thoát hoàn toàn khỏi chương trình vào nút đỏ
+    this.setLocationRelativeTo(null);// để giao diện nằm chính giữa
+    this.setResizable(false);// không cho phép thay đổi kích cỡ cửa sổ
+    this.setVisible(true);// để giao diện hiện lên
+
+  }
 }
