@@ -15,6 +15,15 @@ public class defaultDictionary {
     return dictionary;
   }
 
+  public static void main(String[] args) {
+    defaultDictionary defaultDic = new defaultDictionary();
+    dictionary.addANewWord("Hi", "test");
+    dictionary.addANewWord("Hello", "hi");
+    defaultDic.showAllWords();
+    System.out.println(defaultDic.adjacentWord("Hiii"));
+
+  }
+
   public void insertFromFile() {
     try {
       File file = new File("./src/dictionaries.txt");
@@ -33,7 +42,7 @@ public class defaultDictionary {
   public ArrayList<String> showAllWords() {
     ArrayList<String> result = new ArrayList<String>();
     Set<String> keySet = dictionary.wordsList.keySet();
-    for(String key : keySet) {
+    for (String key : keySet) {
       result.add(key + ": " + dictionary.wordsList.get(key));
     }
     return result;
@@ -50,14 +59,14 @@ public class defaultDictionary {
     list.add(key);
     int c = 9;
     String tm = key;
-    while(c != 0) {
+    while (c != 0) {
       try {
         tm = dictionary.wordsList.higherKey(tm);
         //higherKey() return least key greater than key
       } catch (NullPointerException e) {
         break;
       }
-      if(tm != null) {
+      if (tm != null) {
         list.add(tm);
       }
       c--;
@@ -65,7 +74,8 @@ public class defaultDictionary {
     return list;
   }
 
-  /**Số bước ít nhất để biến chuỗi S thành chuỗi T thông qua xóa, thêm, thay.
+  /**
+   * Số bước ít nhất để biến chuỗi S thành chuỗi T thông qua xóa, thêm, thay.
    */
   public int LevenshteinDistance(String S, String T) {
     int lenS = S.length();
@@ -73,25 +83,29 @@ public class defaultDictionary {
     S = " " + S;
     T = " " + T;
     int cost;
-    int[][] lev = new int[lenS + 1][lenT + 1];
-    lev[0][0] = 0;
-    for(int i = 1; i <= lenS; i++) {
-      lev[i][0] = i;
+    int[][] dis = new int[lenS + 1][lenT + 1];
+    dis[0][0] = 0;
+    for (int i = 1; i <= lenS; i++) {
+      dis[i][0] = i;
     }
-    for(int i = 1; i <= lenT; i++) {
-      lev[0][i] = i;
+    for (int i = 1; i <= lenT; i++) {
+      dis[0][i] = i;
     }
-    for(int i = 1; i <= lenS; i++) {
-      for(int j = 1; j <= lenT; j++) {
-        if(S.charAt(i) == T.charAt(j)) {
+    for (int i = 1; i <= lenS; i++) {
+      for (int j = 1; j <= lenT; j++) {
+        if (S.charAt(i) == T.charAt(j)) {
           cost = 0;
         } else {
           cost = 1;
         }
-        lev[i][j] = Math.min(lev[i - 1][j] + 1, Math.min(lev[i][j - 1] + 1, lev[i - 1][j - 1] + cost));
+        dis[i][j] = Math.min(dis[i - 1][j] + 1,
+            Math.min(dis[i][j - 1] + 1, dis[i - 1][j - 1] + cost));
+        //dis[i - 1][j] + 1: thêm 1 ký tự vào dãy S
+        //dis[i][j - 1] + 1: xóa 1 ký tự khỏi dãy S
+        //dis[i - 1][j - 1] + cost: so sánh để thay thế
       }
     }
-    return lev[lenS][lenT];
+    return dis[lenS][lenT];
   }
 
   public String fuzzySearch(String key) {
@@ -99,9 +113,9 @@ public class defaultDictionary {
     Set<String> keySet = dictionary.wordsList.keySet();
     String res = "";
     int levDisMin = Integer.MAX_VALUE;
-    for(String tm : keySet) {
+    for (String tm : keySet) {
       int valueOfLev = LevenshteinDistance(key, tm);
-      if(valueOfLev < levDisMin) {
+      if (valueOfLev < levDisMin) {
         levDisMin = valueOfLev;
         res = tm;
       }
@@ -112,17 +126,4 @@ public class defaultDictionary {
       return null;
     }
   }
-
-  public static void main(String[] args) {
-    defaultDictionary defaultDic = new defaultDictionary();
-    dictionary.addANewWord("Hi", "test");
-    dictionary.addANewWord("Hello", "hi");
-    defaultDic.showAllWords();
-    System.out.println(defaultDic.adjacentWord("Hiii"));
-    
-  }
-
-
-
-
 }
