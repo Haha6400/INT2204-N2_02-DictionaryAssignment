@@ -1,0 +1,3 @@
+src/res/mdict/Oxford Advanced Learner's Dictionary\Oxford Advanced Learner's Dictionary.mdx
+src/res/mdict/Cambridge Advanced Learner/Cambridge Advanced Learner Dictionary 4.mdx
+
