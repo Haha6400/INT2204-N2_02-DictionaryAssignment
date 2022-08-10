@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
+
+<TabPane id="AllPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="890.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneBuilder">
+    <tabs>
+        <Tab text="Default Dictionary">
+            <content>
+                <AnchorPane blendMode="MULTIPLY" minHeight="0.0" minWidth="0.0" prefHeight="433.0" prefWidth="850.0">
+                    <children>
+                        <Button id="success" fx:id="dd_buttonAddNewWord" alignment="CENTER_RIGHT" layoutX="200.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#dd_onClickButtonAddNewWord" prefHeight="44.0" prefWidth="134.0" text="Add new word" textAlignment="CENTER">
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                            <effect>
+                                <ColorAdjust />
+                            </effect></Button>
+                        <Button id="showAll" fx:id="dd_buttonShowAllWords" alignment="CENTER_RIGHT" layoutX="342.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#dd_onClickButtonShowAllWords" prefHeight="44.0" prefWidth="143.0" text="Show all words" />
+                        <Button id="delete" fx:id="dd_buttonDeleteThisWord" alignment="CENTER_RIGHT" layoutX="491.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#dd_onClickButtonDeleteWord" prefHeight="44.0" prefWidth="147.0" text="Delete this word" />
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="744.0" layoutY="2.0" onMouseClicked="#dd_onClickFindIcon" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icon/findIcon.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="795.0" layoutY="1.0" onMouseClicked="#dd_onClickDeleteIcon" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icon/deleteIcon.png" />
+                            </image>
+                        </ImageView>
+                        <TextField fx:id="dd_textFieldFindWord" layoutY="1.0" onKeyReleased="#dd_onChangeTextFieldFindWord" prefHeight="26.0" prefWidth="743.0" promptText="Type sth" />
+                        <ListView fx:id="dd_listViewSearcher" layoutY="31.0" onKeyPressed="#dd_onPushItemOfListViewSearcher" onMouseClicked="#dd_onPushItemOfListViewSearcher" prefHeight="463.0" prefWidth="200.0" />
+                        <Button id="change" fx:id="dd_buttonChangeThisWord" alignment="CENTER_RIGHT" layoutX="643.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#dd_onClickButtonChangeWord" prefHeight="43.0" prefWidth="152.0" text="Change this word" />
+                        <ListView fx:id="dd_listViewShowWord" layoutX="205.0" layoutY="186.0" prefHeight="308.0" prefWidth="676.0" />
+                        <VBox fx:id="dd_vBoxAddNewWord" layoutX="204.0" layoutY="80.0" prefHeight="78.0" prefWidth="209.0">
+                            <children>
+                                <TextField fx:id="dd_textFieldAddEnglish" prefHeight="25.0" prefWidth="203.0" promptText="English" />
+                                <TextField fx:id="dd_textFieldAddVietnamese" prefHeight="25.0" prefWidth="204.0" promptText="Vietnamese" />
+                                <Button id="success" fx:id="dd_buttonSubmitAddNewWord" mnemonicParsing="false" onMouseClicked="#dd_onClickButtonSubmitAddNewWord" prefHeight="27.0" prefWidth="96.0" text="Submit" />
+                            </children>
+                        </VBox>
+                        <VBox fx:id="dd_vBoxChangeThisWord" layoutX="565.0" layoutY="83.0" prefHeight="82.0" prefWidth="232.0">
+                            <children>
+                                <TextField fx:id="dd_textFieldChangeMeanOfWord" prefHeight="26.0" prefWidth="215.0" promptText="New mean of this word" />
+                                <Button id="success" fx:id="dd_buttonSubmitChangeWord" minWidth="44.0" mnemonicParsing="false" onMouseClicked="#dd_onClickButtonSubmitChangeThisWord" prefHeight="27.0" prefWidth="62.0" text="Submit">
+                                    <font>
+                                        <Font />
+                                    </font>
+                                </Button>
+                            </children>
+                        </VBox>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="770.0" layoutY="1.0" onMouseClicked="#dd_onClickListenIcon" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icon/listenIcon.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="200.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icon/AddIcon.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="343.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icon/Untitled.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="491.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icon/deleteIcon.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="645.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icon/modify.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab onSelectionChanged="#gg_changeTabToMultiDictionary" text="Multi Dictionary">
+            <content>
+                <AnchorPane>
+                    <children>
+                        <WebView fx:id="md_webView" layoutX="173.0" layoutY="51.0" prefHeight="446.0" prefWidth="707.0" />
+                        <TextField fx:id="md_textFieldFindWord" layoutY="1.0" onKeyReleased="#md_onChangeTextFieldFindWord" prefHeight="28.0" prefWidth="520.0" promptText="Type sth" />
+                        <SplitMenuButton fx:id="md_splitMenuButtonChooseDictionary" layoutX="632.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="247.0" styleClass="split-menu-btn-info" text="Oxford Advanced Learner's Dictionary">
+                            <items>
+                                <MenuItem fx:id="dict0" mnemonicParsing="false" text="Oxford Advanced Learner's Dictionary">
+                                    <graphic>
+                                        <ImageView pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../mdict/Oxford%20Advanced%20Learner's%20Dictionary/Oxford%20Advanced%20Learner's%20Dictionary.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </MenuItem>
+                                <MenuItem fx:id="dict2" mnemonicParsing="false" text="Cambridge Advanced Learner Dictionary 4">
+                                    <graphic>
+                                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../mdict/Cambridge%20Advanced%20Learner/Cambridge%20Advanced%20Learner%20Dictionary%204.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </MenuItem>
+                            </items>
+                            <graphic>
+                                <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../icon/selectIcon.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic></SplitMenuButton>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="527.0" layoutY="2.0" onMouseClicked="#md_onClickFindIcon" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icon/findIcon.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="597.0" layoutY="1.0" onMouseClicked="#md_onClickDeleteIcon" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icon/deleteIcon.png" />
+                            </image>
+                        </ImageView>
+                        <ListView fx:id="md_listViewSearcher" layoutY="51.0" onMouseClicked="#md_onPushItemOfListViewSearcher" prefHeight="446.0" prefWidth="159.0" />
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="562.0" layoutY="1.0" onMouseClicked="#md_onClickListenIcon" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icon/listenIcon.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab onSelectionChanged="#gg_changeTabToGoogleTranslate" text="Google Translate">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <WebView fx:id="gg_webView" layoutX="3.0" layoutY="9.0" prefHeight="490.0" prefWidth="882.0" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>

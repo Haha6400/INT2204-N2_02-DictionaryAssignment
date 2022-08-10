@@ -33,10 +33,10 @@ import test.CMN;
  */
 
 public class mdictBuilder{
-    	private String _Dictionary_Name;
-    	private String _about;
+    	private final String _Dictionary_Name;
+    	private final String _about;
 		String _encoding="";
-	    private int _encrypt=0;
+	    private final int _encrypt=0;
 	    private int grossCompressionType=1;
 		//private String _passcode = "";
 		public String _stylesheet = "";
