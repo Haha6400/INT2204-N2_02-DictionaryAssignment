@@ -18,7 +18,7 @@ Bài tập lớn cuối kỳ - Dictionary Assignment (môn học: Lập trình H
 
 ### DefaultDictionary Tab
 
-- Using treemap (red - black tree) data structure
+- Using treemap (red - black tree) data structure - [Mdict](https://github.com/KnIfER/mdict-java)
 - Add a word to dictionary
 - Delete a word to dictionary
 - Change word explaination of a word to dictionary
@@ -29,10 +29,10 @@ Bài tập lớn cuối kỳ - Dictionary Assignment (môn học: Lập trình H
 
 ### MultiDictionary Tab
 
-- Using [query library for Mdict] - [Oxford Advanced Learner's Dictionary](https://mdx.mdict.org/%E5%85%AD%E5%A4%A7%E7%9F%A5%E5%90%8D%E8%AF%8D%E5%85%B8/%E7%89%9B%E6%B4%A5_Oxford/Oxford%20Advanced%20Learner_s%20En-Ch%20Dictionary/?sort=size&order=desc)
+- Using [query library for Mdict] - [Multi Dictionary](https://drive.google.com/drive/folders/1tehTJtqRb-t95mkYg-s4i9o-G94pIU9Q?fbclid=IwAR1DdEbftNTh5AaaP386-ATtGLaddShB3A7qp1Hy8y48ZVZVCI__qrXu_V4)
 - Look up a word in dictionaries
 - Search words that have similar prefix in dictionaries
 
 ### Google Translate Tab
 
-- Just a webview to view google translate
+- Just a webview to view [google translate](https://translate.google.com/?sl=auto&tl=vi&op=translate)
