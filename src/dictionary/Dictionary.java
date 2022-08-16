@@ -19,7 +19,7 @@ public class Dictionary {
   public boolean addNewWord(String wordTarget, String wordExplain) {
     wordTarget = lowerCase(wordTarget);
     wordExplain = lowerCase(wordExplain);
-    if (words.get(wordTarget) != null) {
+    if (words.get(wordTarget) != "null") {
       words.put(wordTarget, wordExplain);
       return true;
     } else {
