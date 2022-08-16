@@ -32,6 +32,7 @@ Bài tập lớn cuối kỳ - Dictionary Assignment (môn học: Lập trình H
 - Using [query library for Mdict] - [Multi Dictionary](https://drive.google.com/drive/folders/1tehTJtqRb-t95mkYg-s4i9o-G94pIU9Q?fbclid=IwAR1DdEbftNTh5AaaP386-ATtGLaddShB3A7qp1Hy8y48ZVZVCI__qrXu_V4)
 - Look up a word in dictionaries
 - Search words that have similar prefix in dictionaries
+- Because the data size of multi Dictionary is very large, I will not upload it to github. Specifically it is located at src\res\mdict.
 
 ### Google Translate Tab
 
