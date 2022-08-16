@@ -1,13 +1,12 @@
 package dictionary;
 
+import com.knziha.plod.dictionary.mdict;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
-
-import com.knziha.plod.dictionary.mdict;
 
 public class MultiDictionary {
 

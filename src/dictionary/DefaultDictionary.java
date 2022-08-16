@@ -43,9 +43,9 @@ public class DefaultDictionary {
   public ArrayList<String> showAllWords() {
     ArrayList<String> result = new ArrayList<>();
     Set<String> keySet = dictionary.words.keySet();
-      for (String key : keySet) {
-          result.add(key + ": " + dictionary.words.get(key));
-      }
+    for (String key : keySet) {
+      result.add(key + ": " + dictionary.words.get(key));
+    }
     return result;
   }
 
@@ -120,11 +120,11 @@ public class DefaultDictionary {
         res = tmp;
       }
     }
-      if (LevenshteinMin <= 3) {
-          return res;
-      } else {
-          return null;
-      }
+    if (LevenshteinMin <= 3) {
+      return res;
+    } else {
+      return null;
+    }
 
   }
 }
