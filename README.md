@@ -18,7 +18,7 @@ Bài tập lớn cuối kỳ - Dictionary Assignment (môn học: Lập trình H
 
 ### DefaultDictionary Tab
 
-- Using treemap (red - black tree) data structure - [Mdict](https://github.com/KnIfER/mdict-java)
+- Using treemap (red - black tree) data structure - [Mdict](https://github.com/KnIfER/mdict-java/tree/master/src/main/java/com)
 - Add a word to dictionary
 - Delete a word to dictionary
 - Change word explaination of a word to dictionary
